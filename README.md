@@ -10,7 +10,13 @@ A collection of scenario-based interview questions focused on Kubernetes Pods, f
 5. [Init Containers for Pre-Start Tasks](#5-init-containers-for-pre-start-tasks)  
 6. [Resource Limits and OOMKills](#6-resource-limits-and-oomkills)  
 7. [Pod Networking Issues](#7-pod-networking-issues)  
-8. [Pod Security Context](#8-pod-security-context)  
+8. [Pod Security Context](#8-pod-security-context)
+9. [Core Security Context Configuration](#9-Core-Security-Context-Configuration)
+10. [Pod Security Standards (PSS) Compliance](#10Pod-Security-Standards-(PSS)-Compliance)
+11. [Network Hardening](#11.Network-Hardening)
+12. [Runtime Security Enhancements](#12.Runtime-Security-Enhancements)
+13. [Supply Chain Security](#13.Supply-Chain-Security)
+14. [Implementation Checklist](#14.Implementation-Checklist)
 
 ---
 
@@ -165,5 +171,19 @@ securityContext:
     drop: ["ALL"]
   seccompProfile:
     type: RuntimeDefault
+```
+### 9.Core Security Context Configuration <a name="9-Core-Security-Context-Configuration"></a>
+Essential settings to enforce least privilege:
+```yaml
+securityContext:
+  runAsUser: 1000              # Non-root user execution [[1]](#__1)
+  runAsGroup: 3000             # Non-root group context
+  fsGroup: 4000                # File system group ownership
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop: ["ALL"]              # Remove all Linux capabilities [[1]](#__1)
+  seccompProfile:
+    type: RuntimeDefault       # Default seccomp filtering [[0]](#__0)
+  readOnlyRootFilesystem: true # Immutable container
 ```
 
