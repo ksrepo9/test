@@ -1,6 +1,6 @@
 # Kubernetes Scenario-Based Pod Interview Questions
 
-A collection of scenario-based interview questions focused on Kubernetes Pods, formatted for technical documentation. Updated July 2025.
+A collection of scenario-based interview questions focused on Kubernetes Pods.
 
 ## Table of Contents
 1. [Multi-Container Pod Communication](#1-multi-container-pod-communication)  
