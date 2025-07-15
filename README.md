@@ -219,7 +219,6 @@ spec:
 ```
 
 **Best Practices:**
-
 - Default deny all ingress/egress traffic 
 - Whitelist required communication paths
 - Use service mesh for mTLS encryption
