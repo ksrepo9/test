@@ -259,6 +259,7 @@ spec:
     - expression: "object.spec.containers.all(c, c.image.endsWith('@sha256'))"
       message: "All images must use digest references"
 ```
+
 **Verification Requirements:**
 -Signed container images with Cosign 
 -SBOM (Software Bill of Materials) validation
