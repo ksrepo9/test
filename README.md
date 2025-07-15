@@ -153,3 +153,17 @@ Troubleshooting Matrix:
 | No inter-pod comms | Network Policies   | calicoctl   |
 | DNS resolution failed   | CoreDNS Pod status   | nslookup   |
 | Service unreachable   | Endpoint slices  | kubectl get ep   |
+
+### 8. Pod Security Context <a name="8-pod-security-context"></a>
+Hardened Configuration:
+```yaml
+securityContext:
+  runAsUser: 1000
+  runAsGroup: 3000
+  fsGroup: 4000
+  capabilities:
+    drop: ["ALL"]
+  seccompProfile:
+    type: RuntimeDefault
+```
+
