@@ -172,7 +172,7 @@ securityContext:
   seccompProfile:
     type: RuntimeDefault
 ```
-### 9.Core Security Context Configuration <a name="9-Core-Security-Context-Configuration"></a>
+### 9. Core Security Context Configuration <a name="9-Core-Security-Context-Configuration"></a>
 Essential settings to enforce least privilege:
 ```yaml
 securityContext:
