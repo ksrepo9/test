@@ -204,7 +204,7 @@ securityContext:
 
 ### 11. Network Hardening <a name= "11-Network-Hardening"></a>
 
-# Network Policy Example
+Network Policy Example
 
 ```yaml
 apiVersion: networking.k8s.io/v1
@@ -222,3 +222,20 @@ spec:
 - Default deny all ingress/egress traffic 
 - Whitelist required communication paths
 - Use service mesh for mTLS encryption
+
+### 12.Runtime Security Enhancements <a name= "12-Runtime-Security-Enhancements"> </a>
+Advanced protection mechanisms:
+```yaml
+securityContext:
+  apparmorProfile:
+    type: runtime/default
+  sysctls:
+  - name: kernel.perf_event_paranoid
+    value: "3"
+```
+
+graph LR
+    A[Kernel System Calls] --> B[eBPF Probes]
+    B --> C{Security Analysis}
+    C -->|Allow| D[Normal Execution]
+    C -->|Block| E[Alert & Terminate]
