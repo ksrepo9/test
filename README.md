@@ -195,21 +195,10 @@ securityContext:
 ### 10.Pod Security Standards (PSS) Compliance  <a name="10-Pod-Security-Standards-(PSS)-Compliance"></a>
 Adhere to Restricted policy requirements:
 
-| Must validate against latest v1.25+ PSS standards |
-| Requires all containers to: | 
-  | Run as non-root users |
-  | Prohibit privileged containers |
-  | Drop ALL capabilities |
-  | Enforce read-only root filesystems |
+**Must validate against latest v1.25+ PSS standards**
+**Requires all containers to:**
+  *Run as non-root users
+  *Prohibit privileged containers
+  *Drop ALL capabilities 
+  *Enforce read-only root filesystems 
 
-  | Step | Instructions          |
-|------|-----------------------|
-| 1    | Main step 1           |
-|      | - Sub-step A          |
-|      |   * Sub-sub-step i    |
-|      |   * Sub-sub-step ii   |
-|      | - Sub-step B          |
-| 2    | Main step 2           |
-|      | - Sub-step X          |
-|      |   * Sub-sub-step a    |
-|      |   * Sub-sub-step b    |
