@@ -186,4 +186,8 @@ securityContext:
     type: RuntimeDefault       # Default seccomp filtering [[0]](#__0)
   readOnlyRootFilesystem: true # Immutable container
 ```
+Key Features:
 
+Prevents privilege escalation attacks
+Removes unnecessary kernel capabilities
+Enforces read-only root filesystem where possible
