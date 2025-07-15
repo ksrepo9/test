@@ -201,3 +201,15 @@ Adhere to Restricted policy requirements:
   | Prohibit privileged containers |
   | Drop ALL capabilities |
   | Enforce read-only root filesystems |
+
+  | Step | Instructions          |
+|------|-----------------------|
+| 1    | Main step 1           |
+|      | - Sub-step A          |
+|      |   * Sub-sub-step i    |
+|      |   * Sub-sub-step ii   |
+|      | - Sub-step B          |
+| 2    | Main step 2           |
+|      | - Sub-step X          |
+|      |   * Sub-sub-step a    |
+|      |   * Sub-sub-step b    |
