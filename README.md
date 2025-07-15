@@ -192,7 +192,7 @@ securityContext:
 | Removes unnecessary kernel capabilities |
 | Enforces read-only root filesystem where possible |
 
-### 10.Pod Security Standards (PSS) Compliance  <a name="10-Pod-Security-Standards-(PSS)-Compliance"></a>
+### 10. Pod Security Standards (PSS) Compliance  <a name="10-Pod-Security-Standards-(PSS)-Compliance"></a>
 
 **Must validate against latest v1.25+ PSS standards**
 
@@ -202,16 +202,24 @@ securityContext:
 - Drop ALL capabilities
 - Enforce read-only root filesystems
 
+### 11. Network Hardening <a name= "11-Network-Hardening""></a>
+
+# Network Policy Example
+
 ```yaml
-apiVersion: admissionregistration.k8s.io/v1
-kind: ValidatingWebhookConfiguration
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
 metadata:
-  name: pod-security-webhook
-webhooks:
-- name: restricted-policy.example.com
-  rules:
-  - operations: ["CREATE", "UPDATE"]
-    apiGroups: [""]
-    apiVersions: ["v1"]
-    resources: ["pods"]
+  name: default-deny
+spec:
+  podSelector: {}
+  policyTypes:
+  - Ingress
+  - Egress
 ```
+
+**Best Practices:**
+
+- Default deny all ingress/egress traffic 
+- Whitelist required communication paths
+- Use service mesh for mTLS encryption
