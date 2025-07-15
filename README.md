@@ -40,3 +40,25 @@ spec:
   volumes:
   - name: shared-vol
     emptyDir: {}
+```
+### 2. Pod Scheduling on GPU Nodes <a name="2-pod-scheduling-on-gpu-nodes"></a>
+**Scenario:**;
+
+Ensure ML workload Pods only schedule on GPU-equipped nodes.
+
+Implementation:
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gpu-pod
+spec:
+  containers:
+  - name: ml-container
+    image: tensorflow-gpu
+    resources:
+      limits:
+        nvidia.com/gpu: 2
+  nodeSelector:
+    accelerator: gpu
+```
