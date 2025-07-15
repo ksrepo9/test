@@ -202,3 +202,16 @@ securityContext:
 - Drop ALL capabilities
 - Enforce read-only root filesystems
 
+```yaml
+apiVersion: admissionregistration.k8s.io/v1
+kind: ValidatingWebhookConfiguration
+metadata:
+  name: pod-security-webhook
+webhooks:
+- name: restricted-policy.example.com
+  rules:
+  - operations: ["CREATE", "UPDATE"]
+    apiGroups: [""]
+    apiVersions: ["v1"]
+    resources: ["pods"]
+```
