@@ -62,3 +62,34 @@ spec:
   nodeSelector:
     accelerator: gpu
 ```
+Consider node taints/tolerations for dedicated nodes
+### 3. Persistent Storage for Stateful Pods <a name="3-persistent-storage-for-stateful-pods"></a>
+**Scenario:**;
+
+Database Pod requiring persistent storage across restarts.
+StatefulSet Configuration:
+```yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mysql
+spec:
+  serviceName: "mysql"
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: mysql
+        image: mysql:5.7
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
+  volumeClaimTemplates:
+  - metadata:
+      name: mysql-persistent-storage
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 10Gi
+```
