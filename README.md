@@ -266,7 +266,7 @@ spec:
 
 ### 14. Implementation Checklist <a name= " 14-Implementation-Checklist"> </a>
 
-**
+**Checklist**
 -Apply Restricted Pod Security Admission 
 -Configure granular securityContext settings 
 -Enforce network segmentation policies 
