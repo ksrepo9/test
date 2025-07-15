@@ -235,9 +235,9 @@ securityContext:
 ```
 
 **Protection Features:**
--AppArmor/SELinux profile enforcement
--Kernel parameter hardening
--eBPF-based runtime security monitoring
+- AppArmor/SELinux profile enforcement
+- Kernel parameter hardening
+- eBPF-based runtime security monitoring
 
 ### 13. Supply Chain Security  <a name= "13-Supply-Chain-Security"></a>
 Critical verification steps:
@@ -261,15 +261,15 @@ spec:
 ```
 
 **Verification Requirements:**
--Signed container images with Cosign 
--SBOM (Software Bill of Materials) validation
--Vulnerability scanning integration
+- Signed container images with Cosign 
+- SBOM (Software Bill of Materials) validation
+- Vulnerability scanning integration
 
 ### 14. Implementation Checklist <a name= " 14-Implementation-Checklist"> </a>
 
 **Checklist**
--Apply Restricted Pod Security Admission 
--Configure granular securityContext settings 
--Enforce network segmentation policies 
--Enable encryption for secrets/data at rest 
--Implement image signing/verification workflows
+- Apply Restricted Pod Security Admission 
+- Configure granular securityContext settings 
+- Enforce network segmentation policies 
+- Enable encryption for secrets/data at rest 
+- Implement image signing/verification workflows
