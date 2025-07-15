@@ -1,4 +1,4 @@
-# Kubernetes Scenario-Based Pod Interview Questions (2025)
+# Kubernetes Scenario-Based Pod Interview Questions
 
 A collection of scenario-based interview questions focused on Kubernetes Pods, formatted for technical documentation. Updated July 2025.
 
