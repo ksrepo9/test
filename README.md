@@ -193,7 +193,6 @@ securityContext:
 | Enforces read-only root filesystem where possible |
 
 ### 10.Pod Security Standards (PSS) Compliance  <a name="10-Pod-Security-Standards-(PSS)-Compliance"></a>
-Adhere to Restricted policy requirements:
 
 **Must validate against latest v1.25+ PSS standards**
 
