@@ -234,8 +234,40 @@ securityContext:
     value: "3"
 ```
 
-graph LR
-    A[Kernel System Calls] --> B[eBPF Probes]
-    B --> C{Security Analysis}
-    C -->|Allow| D[Normal Execution]
-    C -->|Block| E[Alert & Terminate]
+**Protection Features:**
+-AppArmor/SELinux profile enforcement
+-Kernel parameter hardening
+-eBPF-based runtime security monitoring
+
+### 13. Supply Chain Security  <a name= "13-Supply-Chain-Security"></a>
+Critical verification steps:
+```yaml
+# Example Admission Controller Config
+apiVersion: policy/v1
+kind: ValidatingAdmissionPolicy
+metadata:
+  name: verify-images
+spec:
+  failurePolicy: Fail
+  matchConstraints:
+    resourceRules:
+    - apiGroups:   [""]
+      apiVersions: ["v1"]
+      operations:  ["CREATE", "UPDATE"]
+      resources:   ["pods"]
+  validations:
+    - expression: "object.spec.containers.all(c, c.image.endsWith('@sha256'))"
+      message: "All images must use digest references"
+```
+**Verification Requirements:**
+-Signed container images with Cosign 
+-SBOM (Software Bill of Materials) validation
+-Vulnerability scanning integration
+
+### 14. Implementation Checklist <a name= " 14-Implementation-Checklist"> </a>
+
+-Apply Restricted Pod Security Admission 
+-Configure granular securityContext settings 
+-Enforce network segmentation policies 
+-Enable encryption for secrets/data at rest 
+-Implement image signing/verification workflows
