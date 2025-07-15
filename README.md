@@ -148,7 +148,7 @@ Use memory profiling tools
 
 ### 7. Pod Networking Issues <a name="7-pod-networking-issues"></a>
 Troubleshooting Matrix:
-Symptom	Check	Tool
+Symptom	 |  Check | 	Tool
 No inter-pod comms	Network Policies	calicoctl
 DNS resolution failed	CoreDNS Pod status	nslookup
 Service unreachable	Endpoint slices	kubectl get ep
