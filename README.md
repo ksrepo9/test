@@ -12,11 +12,11 @@ A collection of scenario-based interview questions focused on Kubernetes Pods, f
 7. [Pod Networking Issues](#7-pod-networking-issues)  
 8. [Pod Security Context](#8-pod-security-context)
 9. [Core Security Context Configuration](#9-Core-Security-Context-Configuration)
-10. [Pod Security Standards (PSS) Compliance](#10Pod-Security-Standards-(PSS)-Compliance)
-11. [Network Hardening](#11.Network-Hardening)
-12. [Runtime Security Enhancements](#12.Runtime-Security-Enhancements)
-13. [Supply Chain Security](#13.Supply-Chain-Security)
-14. [Implementation Checklist](#14.Implementation-Checklist)
+10. [Pod Security Standards (PSS) Compliance](#10-Pod-Security-Standards-(PSS)-Compliance)
+11. [Network Hardening](#11-Network-Hardening)
+12. [Runtime Security Enhancements](#12-Runtime-Security-Enhancements)
+13. [Supply Chain Security](#13-Supply-Chain-Security)
+14. [Implementation Checklist](#14-Implementation-Checklist)
 
 ---
 
@@ -191,3 +191,13 @@ securityContext:
 | Prevents privilege escalation attacks |
 | Removes unnecessary kernel capabilities |
 | Enforces read-only root filesystem where possible |
+
+### 10.Pod Security Standards (PSS) Compliance  <a name="10-Pod-Security-Standards-(PSS)-Compliance"></a>
+Adhere to Restricted policy requirements:
+
+| Must validate against latest v1.25+ PSS standards |
+| Requires all containers to: | 
+  | Run as non-root users |
+  | Prohibit privileged containers |
+  | Drop ALL capabilities |
+  | Enforce read-only root filesystems |
