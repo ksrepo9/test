@@ -273,3 +273,8 @@ spec:
 - Enforce network segmentation policies 
 - Enable encryption for secrets/data at rest 
 - Implement image signing/verification workflows
+
+Audit Command:
+```yaml
+kubectl audit-pod <pod-name> --security-checks=all
+```
