@@ -89,7 +89,66 @@ spec:
       name: mysql-persistent-storage
     spec:
       accessModes: ["ReadWriteOnce"]
-      resources:
-        requests:
-          storage: 10Gi
 ```
+
+### 4. Liveness vs Readiness Probes <a name="4-liveness-vs-readiness-probes"></a>
+Scenario:
+
+Pod crashes intermittently while receiving traffic.
+Diagnostic Configuration:
+```yaml
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 8080
+  initialDelaySeconds: 15
+  periodSeconds: 20
+
+readinessProbe:
+  exec:
+    command: ["/bin/sh", "-c", "test -f /tmp/ready"]
+  initialDelaySeconds: 5
+  periodSeconds: 5
+```
+Troubleshooting Flowchart:
+```yaml
+Pod Crash Cycle → Check Events → Verify Probe Configuration → 
+Adjust Timeouts/Delays → Test Failure Thresholds
+```
+### 5. Init Containers for Pre-Start Tasks <a name="5-init-containers-for-pre-start-tasks"></a>
+Scenario:
+
+Configuration download required before main container starts.
+
+Implementation:
+```yaml
+initContainers:
+- name: config-downloader
+  image: alpine/curl
+  command: ['sh', '-c', 'curl -o /config/app.conf $CONFIG_URL']
+  env:
+  - name: CONFIG_URL
+    value: "https://config-server/v1/app"
+  volumeMounts:
+  - name: config-volume
+    mountPath: /config
+```
+### 6. Resource Limits and OOMKills <a name="6-resource-limits-and-oomkills"></a>
+Diagnosis Workflow:
+```yaml
+kubectl describe pod [POD_NAME] | grep -i OOM
+kubectl logs [POD_NAME] --previous
+kubectl top pod [POD_NAME]
+```
+Optimization Strategy:
+
+Set requests = limits for predictable behavior
+Implement vertical pod autoscaling
+Use memory profiling tools
+
+### 7. Pod Networking Issues <a name="7-pod-networking-issues"></a>
+Troubleshooting Matrix:
+Symptom	Check	Tool
+No inter-pod comms	Network Policies	calicoctl
+DNS resolution failed	CoreDNS Pod status	nslookup
+Service unreachable	Endpoint slices	kubectl get ep
