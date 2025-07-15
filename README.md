@@ -202,7 +202,7 @@ securityContext:
 - Drop ALL capabilities
 - Enforce read-only root filesystems
 
-### 11. Network Hardening <a name= "11-Network-Hardening""></a>
+### 11. Network Hardening <a name= "11-Network-Hardening"></a>
 
 # Network Policy Example
 
