@@ -196,9 +196,10 @@ securityContext:
 Adhere to Restricted policy requirements:
 
 **Must validate against latest v1.25+ PSS standards**
+
 **Requires all containers to:**
-  *Run as non-root users
-  *Prohibit privileged containers
-  *Drop ALL capabilities 
-  *Enforce read-only root filesystems 
+- Run as non-root users
+- Prohibit privileged containers
+- Drop ALL capabilities
+- Enforce read-only root filesystems
 
