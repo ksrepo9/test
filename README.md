@@ -78,4 +78,3 @@ Here's a structured **Roadmap for Docker and Kubernetes** tailored for an SRE ro
   - Managing multiple clusters
   - Cloud-managed Kubernetes (EKS, AKS, GKE)
 
----
